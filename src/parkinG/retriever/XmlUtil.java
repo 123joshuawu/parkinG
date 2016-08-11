@@ -1,4 +1,4 @@
-package parkinGv3.retriever;
+package parkinG.retriever;
 
 import java.io.InputStream;
 
@@ -6,10 +6,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import parkinGv3.retriever.sfparktemplate.Avl;
-import parkinGv3.retriever.sfparktemplate.Ophrs;
-import parkinGv3.retriever.sfparktemplate.Ops;
-import parkinGv3.retriever.sfparktemplate.SfpAvailability;
+import parkinG.retriever.sfparktemplate.Avl;
+import parkinG.retriever.sfparktemplate.Ophrs;
+import parkinG.retriever.sfparktemplate.Ops;
+import parkinG.retriever.sfparktemplate.SfpAvailability;
 
 public class XmlUtil {
 

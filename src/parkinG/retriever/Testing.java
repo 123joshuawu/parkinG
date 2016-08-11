@@ -1,9 +1,9 @@
-package parkinGv3.retriever;
+package parkinG.retriever;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-import parkinGv3.retriever.sfparktemplate.SfpAvailability;
+import parkinG.retriever.sfparktemplate.SfpAvailability;
 
 public class Testing {
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {

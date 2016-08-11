@@ -1,4 +1,4 @@
-package parkinGv3.retriever.sfparktemplate;
+package parkinG.retriever.sfparktemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
