@@ -3,7 +3,6 @@
 <b>Current -</b> Using sfpark data for a specified part of San Francisco, CA
 <h3>OVERVIEW</h3>
 The program is logically divided into three layers: Retriever, Processor, and Distributor</br>
-<b>Program Flow:</b></br>
  SFPARK SERVERS -------  Retriever   ->    Processor   ->    Distributor -------- CLIENTS
  
 In each layer there is a [layer]Manager class (e.g in RETRIEVER layer there is a RetrieverManager) </br>
