@@ -4,6 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
+/**
+ * Abstract class Retriever outlines basic methods revolving around the InputStream data
+ * @author joshuawu
+ *
+ * @param <T> - type of main retriever process - e.g. for HttpRetriever, it is HttpClient
+ */
 abstract class Retriever<T> extends Thread {
 	
 	protected final String dataSource;	// Datasource description URL, filename, etc.
@@ -27,9 +33,10 @@ abstract class Retriever<T> extends Thread {
 	 */
 	protected void closeDataStream() {
 		try {
-			data.close();
+			data.close(); 
 		} catch (IOException e) {
 			System.err.println("[HttpRetriever] closeResponseStream(): ERROR - " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
