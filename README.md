@@ -3,6 +3,11 @@ Provide realtime reporting on parking garage occupancy in certain part of San Fr
 
 The program is composed of three layers - divided into three packages:</br>
  SFPARK SERVERS -------  Retriever   ->    Processor   ->    Distributor -------- CLIENTS
+ 
+In each layer there is a [layer]Manager class (e.g in RETRIEVER layer there is a RetrieverManager) </br>
+  - The Manager class is effectively in charge of all the other classes in its layer. It will coordinate intra and inter layer communication, in fact, inter-layer communication should ONLY happen through the Manager classes. </br>
+  - The goal is to make all the other classes as generic as possible, so if an implementation for a new data source
+  or new queries/streams, only the Manager class will have to be changed
   
 <h3>RETRIEVER</h3>
 In charge of retrieving data from sfpark servers and provide to processor layer when required.
