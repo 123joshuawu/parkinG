@@ -1,7 +1,9 @@
 # parkinG
-Provide realtime reporting on parking garage occupancy in certain part of San Francisco
-
-The program is composed of three layers - divided into three packages:</br>
+<b>GOAL:</b> Provide realtime reporting on parking garage occupancy and be able to make informed decisions with the information</br>
+<b>Current -</b> Using sfpark data for a specified part of San Francisco, CA
+<h3>OVERVIEW</h3>
+The program is logically divided into three layers: Retriever, Processor, and Distributor</br>
+Program Flow:</br>
  SFPARK SERVERS -------  Retriever   ->    Processor   ->    Distributor -------- CLIENTS
  
 In each layer there is a [layer]Manager class (e.g in RETRIEVER layer there is a RetrieverManager) </br>
