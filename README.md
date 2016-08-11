@@ -7,9 +7,9 @@ The program is composed of three layers - divided into three packages:</br>
 <h3>RETRIEVER</h3>
 In charge of retrieving data from sfpark servers and provide to processor layer when required.
 
-<b>HttpRetriever</b> - Retrieves data from sfpark servers every minute -> updates RetrieverManager's SfpAvailability object. IF SocketTimeOutException occurs continue trying to connect every minute</br>
+<b>HttpRetriever</b> - Retrieves data from sfpark servers every minute -> updates RetrieverManager's SfpAvailability object. Even if SocketTimeOutException occurs continue trying to connect every minute</br>
 <b>RetrieverManager</b> - Manages HttpRetriever and holds latest copy of SfpAvailability object.
-                   Sends SfpAvailability object to PROCESSOR layer when requested for</br>
+                   Pushes data to PROCESSOR layer when sfp is updated</br>
 
 <b>Sfpark Data</b></br>
 Complete documentation for sfpark api can be found here:</br> http://sfpark.org/wp-content/uploads/2013/12/SFpark_API_Dec2013.pdf</br>
@@ -22,7 +22,12 @@ Basic Overview:</br>
 
 
 <h3>PROCESSOR</h3>
--- in progress --
+-- in progress -- </br>
+Complex Event Processing done using Siddhi Engine</br>
+Siddhi Language Documentation: https://docs.wso2.com/display/CEP410/SiddhiQL+Guide+3.0</br>
+Will have two main functions:</br>
+1. Perform aggregate functions on data received from RETRIEVER layer and do other computations (tbd) - store results (in database? tbd)</br>
+2. Respond to client requests from DISTRIBUTOR layer - retrieve correct data and if necessary, compute new values, according to user request variables</br>
 
 <h3>DISTRIBUTOR</h3>
--- in progress --
+-- to be determined --
