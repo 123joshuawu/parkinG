@@ -1,6 +1,15 @@
 # parkinG
 <b>GOAL:</b> Provide realtime reporting on parking garage occupancy and be able to make informed decisions with the information</br>
-<b>Current -</b> Using sfpark data for a specified part of San Francisco, CA
+<b>Current -</b> Using sfpark data for a specified part of San Francisco, CA</br>
+<b>TO KEEP IN MIND</b> (just for my poor memory sake)
+- Incorporate Google Maps (both UI and API)
+- Figure out the rest of the Processor Layer
+  - Need higher object to consolidate data? (e.g. ParkingObject) 
+  - Two Siddhi Threads or one?             
+  - Database w/ Siddhi? or just an object
+- Fuzz out details of inter-layer communication (push/pull)
+- Figure out Distribution Layer
+
 <h3>OVERVIEW</h3>
 The program is logically divided into three layers: Retriever, Processor, and Distributor</br>
  SFPARK SERVERS -------  Retriever   ->    Processor   ->    Distributor -------- CLIENTS
