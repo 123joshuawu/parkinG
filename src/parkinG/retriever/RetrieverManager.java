@@ -1,6 +1,6 @@
 package parkinG.retriever;
 
-import parkinG.retriever.sfparktemplate.SfpAvailability;
+import parkinG.sfparktemplate.SfpAvailability;
 
 public class RetrieverManager extends Thread {
 	

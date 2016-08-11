@@ -3,7 +3,7 @@ package parkinG.retriever;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-import parkinG.retriever.sfparktemplate.SfpAvailability;
+import parkinG.sfparktemplate.SfpAvailability;
 
 public class Testing {
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {

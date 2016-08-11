@@ -6,10 +6,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import parkinG.retriever.sfparktemplate.Avl;
-import parkinG.retriever.sfparktemplate.Ophrs;
-import parkinG.retriever.sfparktemplate.Ops;
-import parkinG.retriever.sfparktemplate.SfpAvailability;
+import parkinG.sfparktemplate.Avl;
+import parkinG.sfparktemplate.Ophrs;
+import parkinG.sfparktemplate.Ops;
+import parkinG.sfparktemplate.SfpAvailability;
 
 public class XmlUtil {
 
