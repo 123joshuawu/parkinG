@@ -8,7 +8,7 @@ import java.util.function.Function;
  * the Processor layer.
  * @author joshuawu
  *
- * @param <T> - Type of object data should be converted into
+ * @param <T> - Type of object data should be returned as
  */
 public class RetrieverManager<T> extends Thread {
 						
