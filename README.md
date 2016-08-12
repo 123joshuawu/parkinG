@@ -1,8 +1,23 @@
 # parkinG
-Provide realtime reporting on parking garage occupancy in certain part of San Francisco
+<b>GOAL:</b> Provide realtime reporting on parking garage occupancy and be able to make informed decisions with the information</br>
+<b>Current -</b> Using sfpark data for a specified part of San Francisco, CA</br>
+<b>TO KEEP IN MIND</b> (just for my poor memory sake)
+- Incorporate Google Maps (both UI and API)
+- Figure out the rest of the Processor Layer
+  - Need higher object to consolidate data? (e.g. ParkingObject) 
+  - Two Siddhi Threads or one?             
+  - Database w/ Siddhi? or just an object
+- Fuzz out details of inter-layer communication (push/pull)
+- Figure out Distribution Layer
 
-The program is composed of three layers - divided into three packages:</br>
+<h3>OVERVIEW</h3>
+The program is logically divided into three layers: Retriever, Processor, and Distributor</br>
  SFPARK SERVERS -------  Retriever   ->    Processor   ->    Distributor -------- CLIENTS
+ 
+In each layer there is a [layer]Manager class (e.g in RETRIEVER layer there is a RetrieverManager) </br>
+  - The Manager class is effectively in charge of all the other classes in its layer. It will coordinate intra and inter layer communication, in fact, inter-layer communication should ONLY happen through the Manager classes. </br>
+  - The goal is to make all the other classes as generic as possible, so if an implementation for a new data source
+  or new queries/streams, only the Manager class will have to be changed
   
 <h3>RETRIEVER</h3>
 In charge of retrieving data from sfpark servers and provide to processor layer when required.
