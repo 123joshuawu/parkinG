@@ -1,0 +1,10 @@
+#	
+#	DO NOT MOVE, RENAME, OR DELETE THIS FILE
+#
+#	All lines beginning with # will be ignored
+#	Query/stream definitions are read from top down in order
+#	Validity of query/stream definitions are not checked
+#	 so MAKE SURE YOUR CODE IS RIGHT
+#	No annotations allowed 
+#	Callbacks cannot be added here
+#
