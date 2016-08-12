@@ -43,6 +43,10 @@ Siddhi Language Documentation: https://docs.wso2.com/display/CEP410/SiddhiQL+Gui
 Will have two main functions:</br>
 1. Perform aggregate functions on data received from RETRIEVER layer and do other computations (tbd) - store results (in database? tbd)</br>
 2. Respond to client requests from DISTRIBUTOR layer - retrieve correct data and if necessary, compute new values, according to user request variables</br>
+</br>
+<b>SiddhiThread</b> - Class representing a single Siddhi execution plan with methods to add queries and streams</br>
+<b>SiddhiDefinitionsReader</b> - Tool to read query and stream definitions from SiddhiDefinitions.txt and adds them to inputted SiddhiThread</br>
+
 
 <h3>DISTRIBUTOR</h3>
 -- to be determined --
