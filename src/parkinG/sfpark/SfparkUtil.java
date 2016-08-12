@@ -29,7 +29,7 @@ public class SfparkUtil {
 
 			SfpAvailability sfp = (SfpAvailability) unmarshaller.unmarshal(s);
 
-			sfp.cleanParkingData();
+			//sfp.cleanParkingData();
 
 			return sfp;
 			

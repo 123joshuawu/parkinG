@@ -8,3 +8,10 @@
 #	No annotations allowed 
 #	Callbacks cannot be added here
 #
+
+define stream parkingInputStream (name string, occ int, oper int, type bool);
+define stream parkingStream (name string, occ int, oper int, openSpots int, percentAvail double);
+define stream agregateInfoStream (availAvg double, maxAvailPer double, maxOpenSpots int); 
+
+from parkingInputStream[not (type or (oper == 0 and occ == 0))] select name, occ, oper, (oper - occ) as openSpots, (convert((oper - occ), 'double') / convert(oper, 'double') * 100.0) as percentAvail output all every 5 seconds insert into parkingStream;
+from parkingStream#window.timeBatch( 1 second ) select avg(percentAvail) as availAvg, max(percentAvail) as maxAvailPer, max(openSpots) as maxOpenSpots insert into agregateInfoStream;

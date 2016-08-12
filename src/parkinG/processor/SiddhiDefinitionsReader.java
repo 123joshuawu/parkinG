@@ -64,32 +64,11 @@ class SiddhiDefinitionsReader {
 		
 		while(scanner.hasNextLine()) {
 			input = scanner.nextLine().trim();
-			if(input.charAt(0) == '#')
+			if(input.equals("") || input.charAt(0) == '#')
 				continue;
 			else 
-				addToSiddhiThread(input);
+				s.addExecutionPlan(input);
 		}
 		scanner.close();
-	}
-	
-	/**
-	 * Adds streams and queries to SiddhiThread
-	 * @param in
-	 */
-	private static final void addToSiddhiThread(String in) {
-		final String[] words = in.split(" ");
-		
-		switch(words[0]) {
-		case "define":
-			s.addStream(in);
-			break;
-		case "from":
-			s.addQuery(in);
-			break;
-		default:
-			System.err.println("[SiddhiDefinitionsReader] addToSiddhiThread(): ERROR - unkown statement:");
-			System.err.println(in);
-			break;
-		}
 	}
 }
