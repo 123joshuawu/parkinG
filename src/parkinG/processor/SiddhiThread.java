@@ -61,6 +61,7 @@ public class SiddhiThread extends Thread {
 	 * @param customCalback
 	 */
 	public void addCallback(String streamName, Consumer<Event[]> customCallback) {
+		//customCallback.accept(new Event[] { new Event() });
 		streamCallbacks.put(streamName, customCallback);
 	}
 
@@ -88,7 +89,8 @@ public class SiddhiThread extends Thread {
 	 * @param e
 	 */
 	private void addCallbacks(ExecutionPlanRuntime e) {
-		streamCallbacks.entrySet().parallelStream().forEach(a -> {
+		streamCallbacks.entrySet().stream().forEach(a -> {
+			//a.getValue().accept(new Event[] { new Event() });
 			System.out.println("[SiddhiThread] addCallbacks(): Adding callback for " + a.getKey());
 			e.addCallback(a.getKey(), new StreamCallback() {
 
@@ -136,19 +138,6 @@ public class SiddhiThread extends Thread {
 
 		e = s.createExecutionPlanRuntime(executionPlan.toString());
 		
-		e.getStreamDefinitionMap().entrySet().parallelStream().forEach(new Consumer<Entry<String, AbstractDefinition>>() {
-
-			public void accept(Entry<String, AbstractDefinition> t) {
-				System.out.println(t.getKey() + ": ");
-				for(Annotation a : t.getValue().getAnnotations())
-					System.out.println("\t" + a.toString());
-				for(Attribute a : t.getValue().getAttributeList()) {
-					System.out.println("\t" + a.toString());
-				}
-				
-			}
-			
-		});
 		addCallbacks(e);
 
 		e.start();

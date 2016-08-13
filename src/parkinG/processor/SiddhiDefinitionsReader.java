@@ -63,8 +63,8 @@ class SiddhiDefinitionsReader {
 		String input;
 		
 		while(scanner.hasNextLine()) {
-			input = scanner.nextLine().trim();
-			if(input.equals("") || input.charAt(0) == '#')
+			input = scanner.nextLine();
+			if(input.trim().equals("") || input.charAt(0) == '#')
 				continue;
 			else 
 				s.addExecutionPlan(input);

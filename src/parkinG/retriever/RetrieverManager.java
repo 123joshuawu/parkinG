@@ -30,6 +30,10 @@ public class RetrieverManager<T> extends Thread {
 		dataRetriever = new HttpRetriever(url, this);
 	}
 	
+	public void setFileRetriever(String filepath) {
+		dataRetriever = new FileRetriever(filepath, this);
+	}
+	
 	/**
 	 * HttpRetriever will use this to update this InputStream
 	 * @param in

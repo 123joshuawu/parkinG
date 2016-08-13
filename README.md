@@ -9,6 +9,7 @@
   - Database w/ Siddhi? or just an object
 - Fuzz out details of inter-layer communication (push/pull)
 - Figure out Distribution Layer
+- Figure out way to generalize Processor layer
 
 <h3>OVERVIEW</h3>
 The program is logically divided into three layers: Retriever, Processor, and Distributor</br>

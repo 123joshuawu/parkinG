@@ -1,6 +1,7 @@
 package parkinG.processor;
 
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 import org.wso2.siddhi.core.event.Event;
@@ -24,36 +25,28 @@ public class ProcessorManager extends Thread {
 	
 	private void init() {
 		SiddhiDefinitionsReader.addSiddhiDefinitions(S);
-		S.addCallback("parkingInputStream");
-		S.addCallback("parkingStream", new Consumer<Event[]>() {
 
-			@Override
-			public void accept(Event[] t) {
-				System.out.print("[SiddhiThread] " + "parkingStream" + ": ");
-				for(Event e : t)
-					System.out.print(" " + e.getData(0) + " ");
-			}
-			
-		});
+		S.addCallback("parkingInputStream");
+		S.addCallback("parkingStream");
+		S.addCallback("agregateInfoStream");
+		
 	}
 	
 	@Override
 	public void run() {
+
 		M.start();
 		S.start();
-		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	
 		while(true) {
 			try {
 				sfp = ((SfpAvailability) M.getData(a -> { return SfparkUtil.unmarshalSFPData((InputStream) a); }));
+				Object[][] objs = new Object[sfp.getAvl().size()][5];
+				int i = 0;
 				for(Avl a : sfp.getAvl()) {
-					S.pushEvent("parkingInputStream", new Object[] {a.getName(), a.getOcc(), a.getOper(), a.typeIs()});
+					objs[i++] = new Object[] {a.getName(), a.getOcc(), a.getOper(), a.typeIs(), sfp.retrieveUpdatedAt().getTime()};
 				}
+				S.pushEvents("parkingInputStream", objs);
 			} catch (InterruptedException e) {
 				System.err.println("[ProcessorManager] run(): " + e.getMessage());
 				e.printStackTrace();
