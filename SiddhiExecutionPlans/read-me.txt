@@ -1,0 +1,26 @@
+#	
+#	DO NOT MOVE, RENAME, OR DELETE THIS FOLDER OR FILE
+#
+#	All lines beginning with # will be ignored
+#	Query/stream definitions are read from top down in order
+#	Validity of query/stream definitions are not checked
+#	 so MAKE SURE YOUR CODE IS CORRECT
+#	All defined output streams will have callbacks added to them
+#
+#	The name of the file will be the name used to reference that particular execution plan
+#	
+#	Each execution plan must have the input/output stream definitions in the very beginning
+#		Input stream name MUST BE: inputStream
+#		Output stream name(s) MUST contain: outputstream   -- not case-sensitive
+#
+#	Sample Execution Plan format shown below:
+
+START OF FILE	- File: TestExecutionPlan.txt
+
+define stream inputStream (test1 int, test2 string, test3 bool);
+define stream test1OutputStream (test1 int);
+define stream test2OutputStream (test2 string);
+
+... Siddhi Queries ...
+
+END OF FILE
