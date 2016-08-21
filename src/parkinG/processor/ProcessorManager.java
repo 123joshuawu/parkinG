@@ -24,7 +24,7 @@ public class ProcessorManager<T extends DataTemplate> extends Thread {
 	}
 	
 	private void init() {
-		SiddhiDefinitionsReader.addSiddhiDefinitions(S);
+		SiddhiExecutionPlansReader.addSiddhiDefinitions(S);
 /*
 		S.addCallback("parkingInputStream");
 		S.addCallback("parkingStream");

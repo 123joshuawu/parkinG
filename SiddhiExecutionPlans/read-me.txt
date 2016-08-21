@@ -12,6 +12,7 @@
 #	Each execution plan must have the input/output stream definitions in the very beginning
 #		Input stream name MUST BE: inputStream
 #		Output stream name(s) MUST contain: outputstream   -- not case-sensitive
+#			- MUST HAVE AT LEAST ONE OUTPUT STREAM definition
 #
 #	Sample Execution Plan format shown below:
 
