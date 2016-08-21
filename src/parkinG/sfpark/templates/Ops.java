@@ -4,9 +4,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import parkinG.processor.DataTemplate;
+
 @XmlRootElement(name = "OPS")
 @XmlType( propOrder = { "from", "to", "beg", "end" } )
-public class Ops {
+public class Ops implements DataTemplate {
 	
 	private String from;
 	private String to;

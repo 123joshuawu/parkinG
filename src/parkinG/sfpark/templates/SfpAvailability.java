@@ -4,13 +4,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import parkinG.processor.DataTemplate;
+
 @XmlRootElement(name = "SFP_AVAILABILITY", namespace = "http://www.sfmta.com/xsd/availability")
 @XmlType( propOrder = { "status", "errorCode", "numRecords", "message", "updatedAt", "requestReceivedAt", "avl" })
-public class SfpAvailability {
+public class SfpAvailability implements DataTemplate<Avl> {
 
 	private boolean status;			// true for SUCCESS, false for other
 	private int numRecords;			// Gets reset by cleanParkingData()

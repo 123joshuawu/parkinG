@@ -31,6 +31,7 @@ In charge of retrieving data from sfpark servers and provide to processor layer 
 Complete documentation for sfpark api can be found here:</br> http://sfpark.org/wp-content/uploads/2013/12/SFpark_API_Dec2013.pdf</br>
 
 Basic Overview:</br>
+Template classes used for JAXB unmarshalling - All must implement DataTemplate
  - SfpAvailability - First level - Contains multiple Avl, each represents an unique parking garage</br>
     - Avl - Second level - Contains information about parking garage including occupancy</br>
         - Ophrs - Third level - Contains multiple Ops</br>
@@ -47,7 +48,7 @@ Will have two main functions:</br>
 </br>
 <b>SiddhiThread</b> - Class representing a single Siddhi execution plan with methods to add queries and streams</br>
 <b>SiddhiDefinitionsReader</b> - Tool to read query and stream definitions from SiddhiDefinitions.txt and adds them to inputted SiddhiThread</br>
-
+<b>DataTemplate</b> - Contains generic methods to try to fuzz specific details when PROCESSOR layer is interacting with different data formats>/br>
 
 <h3>DISTRIBUTOR</h3>
 -- to be determined --

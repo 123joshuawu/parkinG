@@ -90,7 +90,6 @@ public class SiddhiThread extends Thread {
 	 */
 	private void addCallbacks(ExecutionPlanRuntime e) {
 		streamCallbacks.entrySet().stream().forEach(a -> {
-			//a.getValue().accept(new Event[] { new Event() });
 			System.out.println("[SiddhiThread] addCallbacks(): Adding callback for " + a.getKey());
 			e.addCallback(a.getKey(), new StreamCallback() {
 

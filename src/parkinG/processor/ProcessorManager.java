@@ -11,11 +11,11 @@ import parkinG.sfpark.SfparkUtil;
 import parkinG.sfpark.templates.Avl;
 import parkinG.sfpark.templates.SfpAvailability;
 
-public class ProcessorManager extends Thread {
+public class ProcessorManager<T extends DataTemplate> extends Thread {
 	
 	private final RetrieverManager M;
 	private final SiddhiThread S;
-	private SfpAvailability sfp;
+	private T dataObj;
 	
 	public ProcessorManager(RetrieverManager m) {
 		M = m;
@@ -25,11 +25,11 @@ public class ProcessorManager extends Thread {
 	
 	private void init() {
 		SiddhiDefinitionsReader.addSiddhiDefinitions(S);
-
+/*
 		S.addCallback("parkingInputStream");
 		S.addCallback("parkingStream");
 		S.addCallback("agregateInfoStream");
-		
+*/		
 	}
 	
 	@Override
@@ -40,11 +40,11 @@ public class ProcessorManager extends Thread {
 	
 		while(true) {
 			try {
-				sfp = ((SfpAvailability) M.getData(a -> { return SfparkUtil.unmarshalSFPData((InputStream) a); }));
-				Object[][] objs = new Object[sfp.getAvl().size()][5];
+				dataObj = ((T) M.getData(a -> { return SfparkUtil.unmarshalSFPData((InputStream) a); }));
+				Object[][] objs = new Object[((SfpAvailability) dataObj).getAvl().size()][5];
 				int i = 0;
-				for(Avl a : sfp.getAvl()) {
-					objs[i++] = new Object[] {a.getName(), a.getOcc(), a.getOper(), a.typeIs(), sfp.retrieveUpdatedAt().getTime()};
+				for(Avl a : ((SfpAvailability) dataObj).getAvl()) {
+					objs[i++] = new Object[] {a.getName(), a.getOcc(), a.getOper(), a.typeIs(), ((SfpAvailability) dataObj).retrieveUpdatedAt().getTime()};
 				}
 				S.pushEvents("parkingInputStream", objs);
 			} catch (InterruptedException e) {

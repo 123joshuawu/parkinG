@@ -2,13 +2,16 @@ package parkinG.sfpark.templates;
 
 import java.awt.geom.Point2D;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import parkinG.processor.DataTemplate;
+
 @XmlRootElement(name = "AVL")
 @XmlType(propOrder = { "type", "bfid", "ospid", "name", "desc", "inter", "tel", "ophrs", "occ", "oper", "pts", "loc" })
-public class Avl {
+public class Avl implements DataTemplate<Ophrs> {
 	
 	// Descriptions are assuming SfpAvailability.cleanParkingData() has been run
 	private boolean type;		// true for on-street parking, false for off-street parking
