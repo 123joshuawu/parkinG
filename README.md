@@ -48,7 +48,7 @@ Will have two main functions:</br>
 </br>
 <b>SiddhiThread</b> - Class representing a single Siddhi execution plan with methods to add queries and streams</br>
 <b>SiddhiDefinitionsReader</b> - Tool to read query and stream definitions from SiddhiDefinitions.txt and adds them to inputted SiddhiThread</br>
-<b>DataTemplate</b> - Contains generic methods to try to fuzz specific details when PROCESSOR layer is interacting with different data formats>/br>
+<b>DataTemplate</b> - Contains generic methods to try to fuzz specific details when PROCESSOR layer is interacting with different data formats</br>
 
 <h3>DISTRIBUTOR</h3>
 -- to be determined --
